@@ -87,7 +87,7 @@ def test(image_name, model_dir, device_id):
     cv2.imwrite(SAMPLE_IMAGE_PATH + result_image_name, image)
 
 
-if __name__ == "__main__":
+if __name__ == "__main2__":
     desc = "test"
     parser = argparse.ArgumentParser(description=desc)
     parser.add_argument(
