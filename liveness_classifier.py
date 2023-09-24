@@ -15,6 +15,7 @@ SAMPLE_IMAGE_PATH = "./images/sample/"
 
 def check_image_classify(image):
     height, width, channel = image.shape
+    print(f'Height={height}, Width={width}')
     if width/height != 3/4:
         print("Image is not appropriate!!!\nHeight/Width should be 4/3.")
         return False
@@ -36,9 +37,9 @@ def classify(image, model_dir, device_id):
     model_test = AntiSpoofPredict(device_id)
     image_cropper = CropImage()
     # image = cv2.imread(SAMPLE_IMAGE_PATH + image_name)
-    result = check_image_classify(image)
-    if result is False:
-        return
+    # result = check_image_classify(image)
+    # if result is False:
+    #     return
     image_bbox = model_test.get_bbox(image)
     prediction = np.zeros((1, 3))
     test_speed = 0
