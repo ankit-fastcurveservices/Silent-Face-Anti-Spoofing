@@ -1,3 +1,4 @@
+# Solve last issue: apt install libgl1-mesa-glx
 import os
 import cv2
 import numpy as np
