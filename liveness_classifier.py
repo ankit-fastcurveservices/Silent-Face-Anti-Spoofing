@@ -136,4 +136,4 @@ def process_image():
 
 
 if __name__ == "__main__":
-    app.run(host='localhost', port = 8080, debug=True)
+    app.run(host=os.environ.get('LIVENESS_HOST', '127.0.0.1'), port = os.environ.get('LIVENESS_PORT', 8080), debug=True)
