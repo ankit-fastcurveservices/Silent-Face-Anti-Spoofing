@@ -11,7 +11,6 @@ RUN apt-get install 'ffmpeg'\
     'libxext6'  -y
 RUN pip3 install --upgrade pip
 RUN pip install -r requirements.txt
-RUN pip install flask
 
 EXPOSE 8080
 CMD python3 liveness_classifier.py
