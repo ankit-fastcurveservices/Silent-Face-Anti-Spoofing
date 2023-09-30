@@ -1,0 +1,15 @@
+#Also, paste inside /etc/nginx/nginx.conf file, http {client_max_body_size 10M; .....}
+
+limit_req_zone $binary_remote_addr zone=mylimit:10m rate=10000r/s;
+
+server {
+    listen 80;
+    server_name localhost;
+
+    location / {
+	limit_req zone=mylimit;
+        proxy_set_header   X-Forwarded-For $remote_addr;
+        proxy_set_header   Host $http_host;
+        proxy_pass         "http://127.0.0.1:8080";
+    }
+}
