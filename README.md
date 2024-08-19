@@ -110,3 +110,7 @@ python train.py --device_ids 0  --patch_info your_patch
 针对此项目，为了方便开发者们的技术交流，创建了QQ群：1121178835，欢迎加入。  
 
 除了本次开源的静默活体检测算法外，小视科技还拥有多项人脸识别、人体识别相关的自研算法及商用SDK。有兴趣的个人开发者或企业开发者可登录[小视科技Mini-AI开放平台](https://ai.minivision.cn/)了解和联系我们。
+
+## Docker run cmd
+```docker run -d -p 9090:8080 --name face-livenes face
+```
