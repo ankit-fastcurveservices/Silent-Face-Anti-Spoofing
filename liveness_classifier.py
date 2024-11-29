@@ -5,6 +5,7 @@ import numpy as np
 import argparse
 import warnings
 import time
+import base64
 
 from src.anti_spoof_predict import AntiSpoofPredict
 from src.generate_patches import CropImage
@@ -133,6 +134,21 @@ def process_image():
     result = classify(img, "./resources/anti_spoof_models", 0)
 
     return jsonify(result)#, 'size': [img.width, img.height]})
+
+
+@app.route("/liveness/resize", methods=["POST"])
+def process_image_resize():
+    file = request.files['image']
+    # Read the image via file.stream
+    # img = Image.open(file.stream)
+    # print(file)
+    nparr = np.fromstring(file.read(), np.uint8)
+    image = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
+    width = 50
+    height =  50 
+    nimg= cv2.resize(image, (width, height))
+    retval, buffer = cv2.imencode('.jpg', nimg)
+    return base64.b64encode(buffer)
 
 
 if __name__ == "__main__":
