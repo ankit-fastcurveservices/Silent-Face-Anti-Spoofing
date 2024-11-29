@@ -1,0 +1,10 @@
+services:
+    api:
+      image: face-api
+      hostname: face-api
+      container_name: face-api
+      ports:
+        - "9092:8080"
+      restart: always
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
